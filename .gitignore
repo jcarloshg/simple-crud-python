@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+.env
+.venv/
+venv/
+ENV/
+env/
+.envrc
+.mypy_cache/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.cache/
+
+# FastAPI/Starlette
+instance/
+.starlette*
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Test/HTTP files
+docs/*.http
+
+# OS
+Thumbs.db
+ehthumbs.db
+
