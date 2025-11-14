@@ -6,7 +6,7 @@ from src.app.shared.domain.custom_response import CustomResponse
 from src.app.shared.infra.persist.in_memory.item import items
 
 
-class ItemsDto(BaseModel):
+class ItemsToCreate(BaseModel):
     uuid: UUID4
     message: str = Field(..., min_length=10, max_length=255)
 
@@ -19,7 +19,7 @@ async def create_item(request: Request):
     try:
         # valid request body
         body = await request.json()
-        item = ItemsDto(**body)
+        item = ItemsToCreate(**body)
         # append to in-memory list
         items.append(item)
 
