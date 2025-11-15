@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return "Hello, this is the main endpoint of the API"
+    return "Hello, this is the main endpoint of the API v2"
 
 
 app.include_router(get_all_items_router)
