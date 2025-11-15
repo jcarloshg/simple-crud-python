@@ -21,7 +21,7 @@ async def get_all():
         items_found = []
         for item in items:
             try:
-                items_found.append(ItemsRead(**item.dict()))
+                items_found.append(ItemsRead(**item.model_dump()))
             except ValidationError as e:
                 # Optionally log or handle individual item errors
                 continue
