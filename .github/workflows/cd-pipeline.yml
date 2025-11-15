@@ -1,0 +1,58 @@
+name: CI - [Deploy]
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to Production Environment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: pull code from repository
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/jcarloshg/deploys
+
+            echo "##################################"
+            echo ""
+            echo "pulling the latest code from repository..."
+            echo ""
+            echo "##################################"
+
+            if [ -d "simple-crud-python" ]; then
+              cd simple-crud-python
+              git fetch origin
+              git reset --hard origin/main
+            else
+              git clone git@github.com:jcarloshg/simple-crud-python.git
+              cd simple-crud-python
+            fi
+
+            echo "##################################"
+            echo ""
+            echo "reinstalling dependencies and restarting the service..."
+            echo ""
+            echo "##################################"
+
+            rm -rf .venv
+            python3 -m venv .venv
+            pip install -r requirements.txt
+            source .venv/bin/activate
+
+            echo "##################################"
+            echo ""
+            echo "Running FastAPI application with Gunicorn..."
+            echo ""
+            echo "##################################"
+
+            fastapi run
