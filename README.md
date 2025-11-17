@@ -4,7 +4,7 @@
 
 1. [🔍 Overview](#overview)
    - [🏗️ Project Structure](#project-structure)
-   - [⚡ Technology Stack](#technology-stack)
+   - [⚡ Technology Stack](#-technology-stack)
 2. [⚙️ Setup](#setup)
    - [📋 Prerequisites](#prerequisites)
    - [💾 Installation](#installation)
@@ -76,6 +76,14 @@ simple-crud-python/
 ```
 
 ### ⚡ Technology Stack
+
+#### Technologies
+
+- 🏗️ Clean architecture with 🏛️ Domain Driven Design
+- 🔄 CI/CD with 🤖 GitHub Actions
+- 🧪 Acceptance Test
+
+#### Packages Python
 
 - **FastAPI 0.121.2**: 🚀 Modern, fast web framework for building APIs
 - **Pydantic 2.12.4**: 🔒 Data validation using Python type annotations
