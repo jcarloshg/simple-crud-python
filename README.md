@@ -31,9 +31,9 @@
 9. [👨‍💻 Author](#author)
 10. [📄 License](#license)
 
-A minimal CRUD API built with FastAPI, featuring:
-
 ## 🔍 Overview
+
+A minimal CRUD API built with FastAPI. CI/CD pipelines are implemented via GitHub Actions for automated testing and deployment.
 
 - 💾 In-memory storage for demonstration and development
 - 🔒 Pydantic models for robust request and response validation
